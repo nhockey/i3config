@@ -1,0 +1,148 @@
+set $mod Mod4
+
+font xft:Segoe UI Symbol 8
+
+new_window pixel 3
+focus_follows_mouse  yes
+
+#don't move to neighbouring screen with hjkl
+force_focus_wrapping yes
+
+set $blue #005588
+set $gray1 #484848
+set $gray2 #333333
+
+client.focused            $gray1   $gray1   #FFFFFF   #333333
+client.focused_inactive   $gray2   $gray2   #FFFFFF   #000000
+client.unfocused          $gray2   $gray2   #FFFFFF   #000000
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+c kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec "dmenu_run -nb black -p run"
+
+# screen lock
+bindsym Control+$mod+l exec slimlock
+
+# change focus
+bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (tabbed, toggle split)
+bindsym $mod+n layout tabbed
+bindsym $mod+m layout toggle split
+
+# container navigation
+bindsym $mod+a focus parent
+bindsym $mod+b focus child
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# switch to workspace
+bindsym $mod+1 workspace 1:Main
+bindsym $mod+2 workspace 2:Web
+bindsym $mod+3 workspace 3:Thunar
+bindsym $mod+4 workspace 4:Other
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1:Main
+bindsym $mod+Shift+2 move container to workspace 2:Web
+bindsym $mod+Shift+3 move container to workspace 3:Thunar
+bindsym $mod+Shift+4 move container to workspace 4:Other
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
+
+mode "resize" {
+    bindsym Left    resize shrink width 10 px or 10 ppt
+    bindsym Up  resize grow height 10 px or 10 ppt
+    bindsym Down    resize shrink height 10 px or 10 ppt
+    bindsym Right   resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape or q or ^[
+        bindsym Return mode "default"
+        bindsym q mode "default"
+        bindsym Escape mode "default"
+        bindcode Control+34 mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# multimedia keys
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+
+bindsym XF86AudioPlay exec "~/.bin/player toggle"
+bindsym XF86AudioStop exec "~/.bin/player stop"
+bindsym XF86AudioNext exec "~/.bin/player next"
+bindsym XF86AudioPrev exec "~/.bin/player previous"
+
+bindsym XF86KbdBrightnessDown exec "sudo /opt/kbdlight/bin/kbdlight -"
+bindsym XF86KbdBrightnessUp exec "sudo /opt/kbdlight/bin/kbdlight +"
+bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
+
+bindsym XF86Display exec "arandr"
+
+bindsym $mod+Shift+a exec "pavucontrol"
+
+bar {
+    position top
+        status_command ~/.i3/conky
+        colors {
+            statusline #AAAAAA
+                background #333333
+                focused_workspace $gray2 $gray2 #FFFFFF
+                inactive_workspace $gray1 $gray1 #AAAAAA
+        }
+}
+
+for_window [window_role="pop-up"] floating enable
+
+exec --no-startup-id dbus-launch --sh-syntax --exit-with-session
+exec --no-startup-id /usr/lib/mate-settings-daemon/mate-settings-daemon
+exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
+exec --no-startup-id /usr/lib/mate-panel/wnck-applet
+exec --no-startup-id /usr/lib/mate-panel/notification-area-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id compton -CGb

@@ -1,4 +1,4 @@
-# My very own i3 Configuration
+# My i3 Configuration
 
 ## Requirements
 ### general
@@ -13,6 +13,7 @@
 * dmenu - Super-P launcher
 * pavucontrol - pulseaudio mixer
 * alsamixer
+
 ### from xorg
 * setxkbmap - setting keyboard layout
 * xmodmap - custom key changes

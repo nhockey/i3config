@@ -6,6 +6,7 @@ i use Arch Linux so this is mostly for that, such as i have alias’s set up for
 * i3 - window manager
 * i3status - status bar
 * conky - for the status bar
+* compton - compositer makes it look nice
 * feh - setting bg, also nice image viewer
 * urxvt - terminal emulator
 * unclutter - autohide mouse cursor

@@ -10,7 +10,7 @@ override_utf8_locale yes
 
 TEXT
 ,[
-    ${if_up wls1}{"full_text": "⸎ ${wireless_essid wls1} [${wireless_link_qual_perc wls1}%] ","color":"\#33CC99"},
+    ${if_up wls1}{"full_text": "${wireless_essid wls1} [${wireless_link_qual_perc wls1}%] ","color":"\#33CC99"},
     $else
         ${if_up ens5f5}{"full_text": " ≈ Ethernet ","color":"\#33CC99"},
         $else

@@ -171,8 +171,13 @@ setprompt() {
 }
 setprompt
 
-# vim: set ts=2 sw=2 et:
-. /usr/share/zsh/site-contrib/powerline.zsh
+# Or if you have powerline installed then use that!
+if [ -f /usr/share/zsh/site-contrib/powerline.zsh ];
+then
+  . /usr/share/zsh/site-contrib/powerline.zsh
+fi
 
 envoy -t ssh-agent
 source <(envoy -p)
+
+# vim: set ts=2 sw=2 et:

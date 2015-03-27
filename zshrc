@@ -11,12 +11,13 @@ SAVEHIST=10000
 export BROWSER="google-chrome-stable"
 export EDITOR="vim"
 export PAGER="most"
-export PATH="~/.local/bin:~/.local/sbin:/usr/lib/ccache/bin:/opt/java/jre/bin:/opt/cuda/bin/:${PATH}"
+export PATH="~/.local/bin:~/.local/sbin:/usr/lib/ccache/bin:/opt/java/jre/bin:/opt/cuda/bin/:${HOME}/.gem/ruby/2.1.0/bin:${PATH}"
 export PYTHONPATH=/usr/lib/python3.4/site-packages
 export TERM=xterm-256color
 #export CC=clang
 #export CXX=clang++
 export VDPAU_DRIVER=va_gl
+export JAVA_HOME=/usr/lib/jvm/java-default-runtime
 
 #-----------------------------
 # Dircolors

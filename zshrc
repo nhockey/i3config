@@ -35,6 +35,7 @@ typeset -g -A key
 bindkey '\e[1~' beginning-of-line
 bindkey '^a'    beginning-of-line
 bindkey '\e[4~' end-of-line
+bindkey '^e'    end-of-line
 #bindkey '\e[2~' overwrite-mode
 bindkey '^?' backward-delete-char
 bindkey '^[[1~' beginning-of-line

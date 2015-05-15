@@ -174,7 +174,7 @@ setprompt() {
 }
 setprompt
 
-# Or if you have powerline installed then use that!
+# Or if you have powerline installed then use that.
 if [ -f /usr/share/zsh/site-contrib/powerline.zsh ];
 then
   . /usr/share/zsh/site-contrib/powerline.zsh

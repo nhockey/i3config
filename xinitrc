@@ -48,6 +48,10 @@ if [ -x $(which gpg-agent) ]; then
     export GPG_AGENT_INFO
 fi
 
+# This is gnome-keyring stuff
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 #composition manager
 compton --config ~/.i3/compton.conf &
 

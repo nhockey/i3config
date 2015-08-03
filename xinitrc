@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#Disabloe my broken screen
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
+xrandr --output LVDS-1-0 --off
+xrandr --output LVDS1 --off
+
 #settings
 xset -b
 xrdb -merge ~/.i3/xresources
@@ -10,9 +16,6 @@ xrdb -merge ~/.i3/xresources
 #background
 [ -e ~/.fehbg ] && source ~/.fehbg
 
-#trackball middle button emulation
-xinput set-prop "Primax Kensington Eagle Trackball" "Evdev Middle Button Emulation" 1
-
 #hide mouse coursor when it isn't used
 unclutter -root -visible &
 
@@ -21,16 +24,12 @@ eval `dbus-launch --sh-syntax --exit-with-session`
 
 #apps
 start-pulseaudio-x11
-mpd &
 urxvtd &
 
 #keyboard layout
 setxkbmap -option ctrl:nocaps
 xmodmap ~/.i3/xmodmap
 [ -e ~/.xmodmap_local ] && xmodmap ~/.xmodmap_local
-
-#color temperature adjustment, set for Gdańsk
-redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
 
 #notification
 #dunst -config ~/.i3/dunstrc &
@@ -39,7 +38,7 @@ redshift -l 54.35:18.65 -m randr -t 5500:4500 -g 0.75:0.75:0.75 &
 #udiskie &
 
 #other
-#[ -e /usr/bin/dropboxd ] && /usr/bin/dropboxd &
+[ -e /usr/bin/dropboxd ] && /usr/bin/dropboxd &
 
 #creating gpg agent
 GPG_ENVFILE="$HOME/.gnupg/gpg-agent.env"

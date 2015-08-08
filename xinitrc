@@ -1,11 +1,5 @@
 #!/bin/sh
 
-#Disabloe my broken screen
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-#xrandr --auto
-xrandr --output LVDS-1-0 --off
-xrandr --output LVDS1 --off
-
 #settings
 xset -b
 xrdb -merge ~/.i3/xresources

@@ -32,6 +32,7 @@ It’s as simple as that:
 cd
 git clone https://github.com/nhockey/i3config.git .i3
 ln -s $PWD/.i3/xinitrc $HOME/.xinitrc
+# Optional zshrc
 ln -s $PWD/.i3/zshrc $HOME/.zshrc
 ln -s $PWD/.i3/gtkrc-2.0 $HOME/.gtkrc-2.0
 ln -f $PWD/.i3/gtk-3.0-settings $HOME/.config/gtk-3.0/settings.ini

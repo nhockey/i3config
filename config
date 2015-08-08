@@ -149,7 +149,6 @@ bar {
 for_window [window_role="pop-up"] floating enable
 for_window [class="Pidgin" instance="Pidgin"] floating enable
 
-exec --no-startup-id dbus-launch --sh-syntax --exit-with-session
 exec --no-startup-id /usr/lib/mate-settings-daemon/mate-settings-daemon
 exec --no-startup-id /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 exec --no-startup-id /usr/lib/mate-panel/wnck-applet

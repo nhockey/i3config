@@ -158,3 +158,4 @@ exec --no-startup-id /usr/lib/mate-panel/notification-area-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-volume-control-applet
 exec --no-startup-id compton -CGb
+exec --no-startup-id keynav

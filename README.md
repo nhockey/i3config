@@ -36,6 +36,7 @@ ln -s $PWD/.i3/xinitrc $HOME/.xinitrc
 ln -s $PWD/.i3/zshrc $HOME/.zshrc
 ln -s $PWD/.i3/gtkrc-2.0 $HOME/.gtkrc-2.0
 ln -f $PWD/.i3/gtk-3.0-settings $HOME/.config/gtk-3.0/settings.ini
+ln -s $PWD/.i3/keynavrc $HOME/.keynavrc
 ```
 
 ##Bindings

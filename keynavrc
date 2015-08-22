@@ -1,0 +1,34 @@
+# erase default keybindings
+clear
+
+# run in background
+daemonize
+
+# start and stop
+ctrl+semicolon start
+Escape end
+
+# bind arrow keys to cut actions
+Left cut-left
+Down cut-down
+Up cut-up
+Right cut-right
+
+# bind shift+arrow keys to move
+shift+Left move-left
+shift+Down move-down
+shift+Up move-up
+shift+Right move-right
+
+# warping
+w warp
+semicolon warp,end
+
+# clicking
+space warp,click 1,end
+1 warp,click 1
+2 warp,click 2
+3 warp,click 3
+
+# dragging
+d drag 1

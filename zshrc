@@ -183,6 +183,11 @@ then
   . /usr/share/zsh/site-contrib/powerline.zsh
 fi
 
+if [ -f $HOME/.zshrc.local ];
+then
+  source $HOME/.zshrc.local
+fi
+
 #envoy -t ssh-agent
 #source <(envoy -p)
 

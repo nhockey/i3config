@@ -15,6 +15,7 @@ unclutter -root -visible &
 
 #dbus instance
 eval `dbus-launch --sh-syntax --exit-with-session`
+eval `gnome-keyring-daemon`
 
 #apps
 start-pulseaudio-x11

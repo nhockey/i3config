@@ -178,17 +178,14 @@ setprompt() {
 setprompt
 
 # Or if you have powerline installed then use that.
-if [ -f /usr/share/zsh/site-contrib/powerline.zsh ];
-then
-  . /usr/share/zsh/site-contrib/powerline.zsh
-fi
+#if [ -f /usr/share/zsh/site-contrib/powerline.zsh ];
+#then
+#  . /usr/share/zsh/site-contrib/powerline.zsh
+#fi
 
 if [ -f $HOME/.zshrc.local ];
 then
   source $HOME/.zshrc.local
 fi
-
-#envoy -t ssh-agent
-#source <(envoy -p)
 
 # vim: set ts=2 sw=2 et:
